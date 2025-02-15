@@ -17,7 +17,7 @@
       <div class="form-group">
         <ExecutiveSelector
           v-model:modelValue="form.executive"
-          placeholder="Buscar al usuario..."
+          placeholder="Escribe al menos una letra para buscar un ejecutivo..."
         />
       </div>
 
@@ -132,7 +132,6 @@ const cancel = () => {
 </script>
 
 <style scoped>
-/* Tus estilos originales del formulario */
 .project-form {
   display: flex;
   flex-direction: column;
