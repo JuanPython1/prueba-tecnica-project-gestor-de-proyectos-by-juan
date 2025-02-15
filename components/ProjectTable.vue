@@ -1,6 +1,8 @@
 <template>
   <div class="project-table">
+    <div class="table-header">
     <h2 class="table-title">Proyectos</h2>
+    </div>
     <table class="project-list">
       <thead>
         <tr>
@@ -52,12 +54,24 @@ const confirmDelete = (project) => {
 
 <style scoped>
 .project-table {
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
   border-radius: 8px;
   background-color: #436051;
 }
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
 .table-title {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   font-size: 1.5em;
   color: darkgrey;
 }

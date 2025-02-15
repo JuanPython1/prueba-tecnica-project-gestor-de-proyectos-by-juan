@@ -77,6 +77,7 @@ const selectItem = (item) => {
 
 .autocomplete input {
   width: 100%;
+  box-sizing: border-box;
   padding: 8px;
   border: 1px solid #ccc;
   background-color: beige;

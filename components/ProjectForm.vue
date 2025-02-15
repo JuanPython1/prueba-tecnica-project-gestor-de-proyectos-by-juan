@@ -1,8 +1,10 @@
 <template>
   <div class="project-form">
+    <div class="form-header">
     <h2 class="form-title">
       {{ isEditMode ? "Editar Proyecto" : "Nuevo Proyecto" }}
     </h2>
+  </div>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
         <CustomInput
@@ -132,13 +134,27 @@ const cancel = () => {
 <style scoped>
 /* Tus estilos originales del formulario */
 .project-form {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
   border: 1px solid #436051;
-  padding: 16px;
   border-radius: 8px;
   background-color: #436051;
 }
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
 .form-title {
+  margin-top: 16px;
   margin-bottom: 16px;
+  justify-content: center;
   font-size: 1.5em;
   color: darkgrey;
 }

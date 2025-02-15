@@ -24,10 +24,7 @@ const createProject = () => {
   padding: 16px;
 }
 
-.page-title {
-  margin-bottom: 16px;
-  text-align: left;
-}
+
 .actions {
   text-align: right;
   margin-bottom: 16px;
