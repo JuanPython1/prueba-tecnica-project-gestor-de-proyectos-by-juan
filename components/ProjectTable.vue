@@ -115,6 +115,7 @@ const confirmDelete = (project) => {
   background-color: #3c6c4a;
   color: #fff;
   cursor: pointer;
+  font-family: monospace;
 }
 .btn:hover {
   background-color: #5baa88;

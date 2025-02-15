@@ -39,5 +39,6 @@ const props = defineProps({
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
+  font-family: monospace;
 }
 </style>

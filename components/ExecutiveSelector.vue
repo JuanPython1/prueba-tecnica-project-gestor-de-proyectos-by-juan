@@ -82,6 +82,7 @@ const selectItem = (item) => {
   border: 1px solid #ccc;
   background-color: beige;
   border-radius: 4px;
+  font-family: monospace;
 }
 
 .suggestions {

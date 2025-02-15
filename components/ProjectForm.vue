@@ -179,6 +179,7 @@ const cancel = () => {
   color: #ea580c;
   cursor: pointer;
   border-radius: 4px;
+  font-family: monospace;
 }
 .type-buttons button.active {
   background-color: #f97316;
@@ -194,6 +195,7 @@ const cancel = () => {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-family: monospace;
 }
 .btn.submit {
   background-color: #f97316;

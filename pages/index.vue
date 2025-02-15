@@ -36,6 +36,7 @@ const createProject = () => {
   background-color: #f97316;
   color: #fff;
   cursor: pointer;
+  font-family: monospace;
 }
 .btn:hover {
   background-color: #ea580c;
