@@ -10,6 +10,5 @@
 </template>
 
 <script setup>
-// Importa el CSS global
 import "./styles/global.css";
 </script>
