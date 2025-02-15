@@ -1,9 +1,12 @@
 <template>
   <div class="project-table">
     <div class="table-header">
-    <h2 class="table-title">Proyectos</h2>
+      <h2 class="table-title">Proyectos</h2>
     </div>
-    <table class="project-list">
+    <div v-if="projects.length === 0" class="no-projects">
+      <p>Aún no tienes proyectos añadidos.</p>
+    </div>
+    <table v-else class="project-list">
       <thead>
         <tr>
           <th>Nombre</th>
@@ -73,6 +76,13 @@ const confirmDelete = (project) => {
 .table-title {
   margin-bottom: 20px;
   font-size: 1.5em;
+  color: darkgrey;
+}
+
+.no-projects {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.2em;
   color: darkgrey;
 }
 
