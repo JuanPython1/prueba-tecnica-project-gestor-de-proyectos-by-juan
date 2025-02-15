@@ -5,10 +5,10 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import ProjectForm from '~/components/ProjectForm.vue';
-import { useProjectStore } from '~/stores/projectStore';
+import { onMounted, ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import ProjectForm from "~/components/ProjectForm.vue";
+import { useProjectStore } from "~/stores/projectStore";
 
 const route = useRoute();
 const router = useRouter();
@@ -19,7 +19,7 @@ const projectData = ref(null);
 onMounted(() => {
   const proj = projectStore.getProjectById(projectId);
   if (!proj) {
-    router.push('/');
+    router.push("/");
   } else {
     projectData.value = { ...proj };
   }

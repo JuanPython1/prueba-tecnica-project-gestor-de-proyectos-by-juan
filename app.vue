@@ -1,7 +1,8 @@
-
 <template class="container-template">
   <header class="page-header">
-    <h1 class="page-title">Prueba Tecnica ~ Gestor de Proyectos by Juan Rodriguez ~ v1.0</h1>
+    <h1 class="page-title">
+      Prueba Tecnica ~ Gestor de Proyectos by Juan Rodriguez ~ v1.0
+    </h1>
   </header>
   <main>
     <NuxtPage />
@@ -9,6 +10,6 @@
 </template>
 
 <script setup>
-  // Importa el CSS global
-  import './styles/global.css'
+// Importa el CSS global
+import "./styles/global.css";
 </script>

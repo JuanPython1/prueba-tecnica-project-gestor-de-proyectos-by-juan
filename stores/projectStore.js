@@ -1,32 +1,31 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
-export const useProjectStore = defineStore('project', {
-
+export const useProjectStore = defineStore("project", {
   state: () => ({
-    projects: []
+    projects: [],
   }),
   actions: {
     addProject(project) {
       const exists = this.projects.some(
-        (p) => p.name.toLowerCase() === project.name.toLowerCase()
+        (p) => p.name.toLowerCase() === project.name.toLowerCase(),
       );
       if (exists) {
-        throw new Error('El nombre del proyecto ya existe');
+        throw new Error("El nombre del proyecto ya existe");
       }
       this.projects.push(project);
     },
     updateProject(project) {
       const index = this.projects.findIndex((p) => p.id === project.id);
       if (index === -1) {
-        throw new Error('Proyecto no encontrado');
+        throw new Error("Proyecto no encontrado");
       }
       const duplicate = this.projects.some(
         (p) =>
           p.id !== project.id &&
-          p.name.toLowerCase() === project.name.toLowerCase()
+          p.name.toLowerCase() === project.name.toLowerCase(),
       );
       if (duplicate) {
-        throw new Error('El nombre del proyecto ya existe');
+        throw new Error("El nombre del proyecto ya existe");
       }
       this.projects[index] = { ...project };
     },
@@ -35,6 +34,6 @@ export const useProjectStore = defineStore('project', {
     },
     getProjectById(id) {
       return this.projects.find((p) => p.id === id);
-    }
-  }
+    },
+  },
 });

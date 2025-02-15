@@ -1,52 +1,64 @@
 <template>
   <div class="project-form">
-    <h2 class="form-title">{{ isEditMode ? 'Editar Proyecto' : 'Nuevo Proyecto' }}</h2>
+    <h2 class="form-title">
+      {{ isEditMode ? "Editar Proyecto" : "Nuevo Proyecto" }}
+    </h2>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
-        <CustomInput 
-          v-model="form.name" 
-          label="Nombre del Proyecto" 
-          placeholder="Ingresar nombre del proyecto" />
+        <CustomInput
+          v-model="form.name"
+          label="Nombre del Proyecto"
+          placeholder="Ingresar nombre del proyecto"
+        />
       </div>
 
       <div class="form-group">
-        <ExecutiveSelector 
-          v-model:modelValue="form.executive" 
-          placeholder="Buscar al usuario..." />
+        <ExecutiveSelector
+          v-model:modelValue="form.executive"
+          placeholder="Buscar al usuario..."
+        />
       </div>
 
       <div class="form-group">
-        <CustomInput 
-          v-model="form.client" 
-          label="Cliente" 
-          placeholder="Ingresa el usuario" />
+        <CustomInput
+          v-model="form.client"
+          label="Cliente"
+          placeholder="Ingresa el usuario"
+        />
       </div>
       <div class="form-group">
-        <CustomInput 
-          v-model="form.contact" 
-          label="Contacto" 
-          placeholder="Ingresa el contacto" />
+        <CustomInput
+          v-model="form.contact"
+          label="Contacto"
+          placeholder="Ingresa el contacto"
+        />
       </div>
       <div class="form-group">
         <label class="group-label">Tipo de Proyecto</label>
         <div class="type-buttons">
-          <button 
-            type="button" 
+          <button
+            type="button"
             :class="{ active: form.type === 'cotizacion' }"
-            @click="form.type = 'cotizacion'">
+            @click="form.type = 'cotizacion'"
+          >
             Cotización
           </button>
-          <button 
-            type="button" 
+          <button
+            type="button"
             :class="{ active: form.type === 'negocio' }"
-            @click="form.type = 'negocio'">
+            @click="form.type = 'negocio'"
+          >
             Negocio
           </button>
         </div>
       </div>
       <div class="form-actions">
-        <button type="button" class="btn cancel" @click="cancel">Cancelar</button>
-        <button type="submit" class="btn submit">{{ isEditMode ? 'Actualizar' : 'Guardar' }}</button>
+        <button type="button" class="btn cancel" @click="cancel">
+          Cancelar
+        </button>
+        <button type="submit" class="btn submit">
+          {{ isEditMode ? "Actualizar" : "Guardar" }}
+        </button>
       </div>
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
     </form>
@@ -54,45 +66,46 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import CustomInput from '~/components/CustomInput.vue'
-import ExecutiveSelector from '~/components/ExecutiveSelector.vue'
-import { useProjectStore } from '~/stores/projectStore'
+import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
+import CustomInput from "~/components/CustomInput.vue";
+import ExecutiveSelector from "~/components/ExecutiveSelector.vue";
+import { useProjectStore } from "~/stores/projectStore";
 
 const props = defineProps({
   initialData: {
     type: Object,
     default: () => ({
-      name: '',
-      executive: '', 
-      client: '',
-      contact: '',
-      type: 'cotizacion'
-    })
-  }
-})
+      name: "",
+      executive: "",
+      client: "",
+      contact: "",
+      type: "cotizacion",
+    }),
+  },
+});
 
-const router = useRouter()
-const projectStore = useProjectStore()
+const router = useRouter();
+const projectStore = useProjectStore();
 
-const form = reactive({ ...props.initialData })
-const isEditMode = !!props.initialData.id
-const errorMessage = ref('')
+const form = reactive({ ...props.initialData });
+const isEditMode = !!props.initialData.id;
+const errorMessage = ref("");
 
 const handleSubmit = () => {
-  errorMessage.value = ''
+  errorMessage.value = "";
   if (!form.name || !form.executive || !form.client || !form.contact) {
-    errorMessage.value = 'Todos los campos son obligatorios.'
-    return
+    errorMessage.value = "Todos los campos son obligatorios.";
+    return;
   }
   if (!form.name || !form.executive) {
-    errorMessage.value = 'El nombre del proyecto y el ejecutivo son obligatorios.'
-    return
+    errorMessage.value =
+      "El nombre del proyecto y el ejecutivo son obligatorios.";
+    return;
   }
   try {
     if (isEditMode) {
-      projectStore.updateProject({ ...form })
+      projectStore.updateProject({ ...form });
     } else {
       const newProject = {
         id: Date.now(),
@@ -101,19 +114,19 @@ const handleSubmit = () => {
         executiveAvatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${Date.now()}`,
         client: form.client,
         contact: form.contact,
-        type: form.type
-      }
-      projectStore.addProject(newProject)
+        type: form.type,
+      };
+      projectStore.addProject(newProject);
     }
-    router.push('/')
+    router.push("/");
   } catch (error) {
-    errorMessage.value = error.message
+    errorMessage.value = error.message;
   }
-}
+};
 
 const cancel = () => {
-  router.push('/')
-}
+  router.push("/");
+};
 </script>
 
 <style scoped>
