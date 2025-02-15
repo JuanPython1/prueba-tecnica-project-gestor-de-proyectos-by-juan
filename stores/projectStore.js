@@ -1,13 +1,4 @@
 import { defineStore } from 'pinia';
-import { getUserApi } from '~/services/getUserApi';
-
-async function loadUser() {
-  const user = await getUserApi('miguel');
-  console.log('user', user);
-}
-
-loadUser();
-
 
 export const useProjectStore = defineStore('project', {
 
