@@ -8,7 +8,7 @@
 import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import ProjectForm from "~/components/ProjectForm.vue";
-import { useProjectStore } from "~/stores/projectStore";
+import { useProjectStore } from "./src/stores/projectStore";
 
 const route = useRoute();
 const router = useRouter();

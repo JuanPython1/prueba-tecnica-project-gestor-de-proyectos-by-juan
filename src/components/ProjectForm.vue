@@ -70,9 +70,9 @@
 <script setup>
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
-import CustomInput from "~/components/CustomInput.vue";
-import ExecutiveSelector from "~/components/ExecutiveSelector.vue";
-import { useProjectStore } from "~/stores/projectStore";
+import CustomInput from "./src/components/CustomInput.vue";
+import ExecutiveSelector from "./src/components/ExecutiveSelector.vue";
+import { useProjectStore } from "./src/stores/projectStore";
 
 const props = defineProps({
   initialData: {

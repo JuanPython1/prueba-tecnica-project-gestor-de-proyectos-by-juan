@@ -36,7 +36,7 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
-import { useProjectStore } from "~/stores/projectStore";
+import { useProjectStore } from "./src/stores/projectStore";
 
 const router = useRouter();
 const projectStore = useProjectStore();
